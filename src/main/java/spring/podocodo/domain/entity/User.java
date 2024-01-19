@@ -6,13 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class User {
+public class User extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "userId")
     private Long id;
 
-    @OneToOne(mappedBy = "trackerId")
+    @OneToOne
+    @JoinColumn(name = "trackerId")
     private Tracker tracker;
 
     @OneToMany(mappedBy = "user")

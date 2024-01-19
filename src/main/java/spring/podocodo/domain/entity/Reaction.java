@@ -3,7 +3,7 @@ package spring.podocodo.domain.entity;
 import jakarta.persistence.*;
 
 @Entity
-public class Reaction {
+public class Reaction extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "reactionId")

@@ -19,7 +19,7 @@ import spring.podocodo.service.UserService;
 public class UserController {
     private final UserService userService;
 
-    @PostMapping
+    @PostMapping("/signUp")
     public ResponseEntity<BaseResponse> createUser(@Valid @RequestBody SignUpRequestDto signUpRequestDto) {
         SignUpResponseDto responseBody = userService.saveUser(signUpRequestDto);
         BaseResponse response = BaseResponse.from(ResponseCode.USER_SAVE, responseBody);

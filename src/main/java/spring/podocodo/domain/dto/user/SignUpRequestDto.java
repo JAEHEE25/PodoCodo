@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import spring.podocodo.domain.entity.User;
 
 @Getter
@@ -22,7 +24,6 @@ public class SignUpRequestDto {
     private static final String EMAIL_TYPE_MESSAGE = "이메일의 형식에 맞게 입력해주세요.";
     private static final String PASSWORD_SIZE_MESSAGE = PASSWORD_MIN_SIZE + "자 이상 " +
             PASSWORD_MAX_SIZE + "자 이내로 입력해주세요.";
-
 
     @NotBlank(message = NOT_BLANK_MESSAGE)
     @Size(max = NAME_MAX_SIZE, message = NAME_SIZE_MESSAGE)
@@ -52,5 +53,9 @@ public class SignUpRequestDto {
                 .profileImage(profileImage)
                 .isWithdrawn(false)
                 .build();
+    }
+
+    public void encodePassword(String encoded) {
+        this.password = encoded;
     }
 }

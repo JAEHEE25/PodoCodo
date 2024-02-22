@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 @Getter
 @Builder
-public class  ExceptionResponseDto {
+public class ExceptionResponseDto {
     private List<ErrorField> errors;
 
     public static ExceptionResponseDto of(BindingResult bindingResult) {

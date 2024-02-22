@@ -23,7 +23,7 @@ public class UserController {
     public ResponseEntity<BaseResponse> createUser(@Valid @RequestBody SignUpRequestDto signUpRequestDto) {
         SignUpResponseDto responseBody = userService.saveUser(signUpRequestDto);
         BaseResponse response = BaseResponse.from(ResponseCode.USER_SAVE, responseBody);
-        return ResponseEntity.ok(response);
+        return ResponseEntity.status(ResponseCode.USER_SAVE.getStatus()).body(response);
     }
 
 }
